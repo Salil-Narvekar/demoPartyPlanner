@@ -6,12 +6,6 @@ const InputField = ({lable, name, id, type, placeholder, min}) => {
 
   const {newState, dispatch} = useContext(CommonContext);
 
-  console.log("newsate name",newState[name])
-
-  // const userEntry = (e) => {
-  //   getValue(name,e);
-  // }
-
   return (
     <div className='grid grid-cols-1 gap-1 '>
       <label className="text-xl"><b>{lable}:</b></label>

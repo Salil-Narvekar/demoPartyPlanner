@@ -4,11 +4,7 @@ import {CommonContext} from '../App'
 
 const TextAreaInputField = ({lable, name, id, placeholder }) => {
 
-  const {dispatch} = useContext(CommonContext);
-
-  // const userEntry = (e) => {
-  //   getValue(name,e);
-  // }
+  const {newState, dispatch} = useContext(CommonContext);
 
   return (
     <div className='grid grid-cols-1 gap-1 '>
@@ -19,6 +15,7 @@ const TextAreaInputField = ({lable, name, id, placeholder }) => {
           name={name} 
           id={id}
           placeholder={placeholder} 
+          value={newState[name] && newState[name]}
           onChange={(e) => dispatch({type: name , value: e.target.value}) }
         />
     </div>

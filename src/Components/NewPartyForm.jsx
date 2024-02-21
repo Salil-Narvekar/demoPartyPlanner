@@ -4,6 +4,7 @@ import TextAreaInputField from './TextAreaInputField'
 import SubmitButton from './SubmitButton'
 import { WarningMessage } from './WarningMessage'
 import { CommonContext, EditField } from '../App'
+import Header from './Header'
 
 
 const NewPartyForm = () => {
@@ -11,50 +12,103 @@ const NewPartyForm = () => {
   const { newState } = useContext(CommonContext);
   const { editState } = useContext(EditField);
 
-  const [validateFlag, setValidateFlag] = useState();
   const [validationErrorMsg, setValidationErrorMsg] = useState('');
   const [count, setCount] = useState(0);
 
-  const validate = () => {
+  const validateAndNext = () => {    
 
-    if(!newState.partyName){
-      setValidateFlag(false);
-      setValidationErrorMsg('Party Name Required');
-      console.log("Validation", validateFlag, validationErrorMsg);
+    if(newState.partyName === ""){
+      setValidationErrorMsg('Party name required');
+      return;
 
-    } else {
-      setValidateFlag(true);
+    } else if(count === 0) {
+      setCount(count+1);
       setValidationErrorMsg('');
-      console.log("Valid");
+      return;
     }
+    
+    if(newState.partyBudget === ""){
+      setValidationErrorMsg('Party budget required');
+      return;
 
-    if(!newState.partyBudget){
-      setValidateFlag(false);
-      setValidationErrorMsg('Party Budget Required');
-      console.log("Validation", validateFlag, validationErrorMsg);
-
-    } else {
-      setValidateFlag(true);
+    } else if(count === 1){
+      setCount(count+1);
       setValidationErrorMsg('');
-      console.log("Valid");
+      return;
+    }
+    
+    if(newState.partyVenue === ""){
+      setValidationErrorMsg('Party venue required');
+      return;
+
+    } else if(count === 2){
+      setCount(count+1);
+      setValidationErrorMsg('');
+      return;
+    }
+    
+    if(newState.partyFood === ""){
+      setValidationErrorMsg('Party food required');
+      return;
+
+    } else if(count === 3){
+      setCount(count+1);
+      setValidationErrorMsg('');
+      return;
+    }
+    
+    if(newState.partyReturnGift === ""){
+      setValidationErrorMsg('Return gift name required');
+      return;
+
+    } else if(count === 4){
+      setCount(count+1);
+      setValidationErrorMsg('');
+      return;
+    }
+    
+    if(newState.totolInvitations === ""){
+      setValidationErrorMsg('Total invitee no. required');
+      return;
+
+    } else if(count === 5){
+      setCount(count+1);
+      setValidationErrorMsg('');
+      return;
+    }
+    
+    if(newState.partyDecorations === "" ){
+      setValidationErrorMsg('Party decorations required');
+      return;
+
+    } else if(count === 6){
+      setCount(count+1);
+      setValidationErrorMsg('');
+      return;
+    }
+    
+    if(newState.partyEvents === ""){
+      setValidationErrorMsg('Party event required');
+      return;
+
+    } else if(count === 7){
+      setCount(count+1);
+      setValidationErrorMsg('');
+      return;
     }
 
   };
 
-  const showNext = () => {
-    setCount(count+1);
-  }
-
   useEffect( () => {
     // if(editState.newStateArr.length < 0) return
 
-      if(editState.editPartyName === "") return
-      setCount(editState.newStateArr.indexOf(editState.editPartyName));
+    if(editState.editPartyName === "") return
+    setCount(editState.newStateArr.indexOf(editState.editPartyName));
 
-      // above if is the example of js es6 - guard clause
-      // if(editState.editPartyName !== "") {
-      //   setCount(editState.newStateArr.indexOf(editState.editPartyName));
-      // }
+    // above if is the example of js es6 - guard clause
+    // if(editState.editPartyName !== "") {
+    //   setCount(editState.newStateArr.indexOf(editState.editPartyName));
+    // }
 
   },[editState])
 
@@ -79,10 +133,6 @@ const NewPartyForm = () => {
               placeholder="Enter name of Party"
             ></InputField>
 
-            {
-              !newState.partyName &&
-              <p> error </p>
-            }
             <WarningMessage warningText={validationErrorMsg}></WarningMessage>
           </div>
         }
@@ -197,8 +247,20 @@ const NewPartyForm = () => {
             <WarningMessage warningText={validationErrorMsg}></WarningMessage>
           </div>
         }
+
+        {
+          count > 7 &&
+
+          <div className='text-emerald-950'>
+            <Header headerText="Plan Ready !! " subHeader="Now submit party details from summary"></Header>
+          </div>
+        }
         
-        <SubmitButton submitButtonLable="Save & Next" submitButtonName="next" onClickSubmit={() => showNext()}></SubmitButton>
+        {
+          count <= 7 &&
+
+          <SubmitButton submitButtonLable="Save & Next" submitButtonName="next" onClickSubmit={() => validateAndNext()}></SubmitButton>
+        }
 
       </form>
 
