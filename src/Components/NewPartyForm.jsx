@@ -27,7 +27,6 @@ const NewPartyForm = () => {
       setValidationErrorMsg('');
       console.log("Valid");
     }
-    
 
     if(!newState.partyBudget){
       setValidateFlag(false);

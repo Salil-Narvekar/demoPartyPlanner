@@ -9,13 +9,6 @@ const NavPanel = () => {
   const {newState, dispatch} = useContext(CommonContext);
   const {editState, editDispatch} = useContext(EditField);
 
-  
-  const updateField = (updateContentType) => {
-    // dispatch({type: name , value: e.target.value})
-    console.log("Update Content Type", updateContentType);
-  };
-
-
   return (
     <div className="sm:min-h-full sm:text-left text-slate-300 bg-gradient-to-r from-indigo-950 to-cyan-700 font-sans py-2 pl-2 pr-1">
       {
