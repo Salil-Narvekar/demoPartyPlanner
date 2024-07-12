@@ -44,6 +44,10 @@ const reducer2 = (state, action) => {
 
 function App() {
 
+  useEffect(() => {
+    document.title = "Party_Planner";
+  }, []);
+
   const [newState, dispatch] = useReducer(reducer, initialState);
   const [editState, dispatch2] = useReducer(reducer2, editInitialState);
   const [newStateArr, setNewStateArr] = useState([]);
