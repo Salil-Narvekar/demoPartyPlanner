@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/demoPartyPlanner/static/css/main.7b935e02.css",
-    "main.js": "/demoPartyPlanner/static/js/main.915006ac.js",
+    "main.js": "/demoPartyPlanner/static/js/main.65f9181d.js",
     "static/js/592.80a365ca.chunk.js": "/demoPartyPlanner/static/js/592.80a365ca.chunk.js",
     "index.html": "/demoPartyPlanner/index.html",
     "main.7b935e02.css.map": "/demoPartyPlanner/static/css/main.7b935e02.css.map",
-    "main.915006ac.js.map": "/demoPartyPlanner/static/js/main.915006ac.js.map",
+    "main.65f9181d.js.map": "/demoPartyPlanner/static/js/main.65f9181d.js.map",
     "592.80a365ca.chunk.js.map": "/demoPartyPlanner/static/js/592.80a365ca.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7b935e02.css",
-    "static/js/main.915006ac.js"
+    "static/js/main.65f9181d.js"
   ]
 }
